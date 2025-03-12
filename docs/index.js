@@ -16,7 +16,7 @@ System.register(["./application.js"], function (_export, _context) {
       canvas.width = bcr.width;
       canvas.height = bcr.height;
       application = new Application();
-      topLevelImport('cc').then(function (engine) {
+      topLevelImport('https://raw.githubusercontent.com/ketchstudio/h5game.github.io/main/docs/cocos-js/cc.js').then(function (engine) {
         return application.init(engine);
       }).then(function () {
         return application.start();
