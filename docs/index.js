@@ -5,7 +5,7 @@ System.register(["./application.js"], function (_export, _context) {
   function topLevelImport(url) {
     return System["import"](url);
   }
-  
+
   return {
     setters: [function (_applicationJs) {
       Application = _applicationJs.Application;
@@ -17,11 +17,11 @@ System.register(["./application.js"], function (_export, _context) {
       canvas.width = bcr.width;
       canvas.height = bcr.height;
       application = new Application();
-      topLevelImport('https://cdn.jsdelivr.net/gh/ketchstudio/h5game.github.io/docs/cocos-js/cc.js').then(function (engine) {
-        return application.init(engine);
-      }).then(function () {
+      
+      const engine = window.cc;
+      application.init(engine).then(function () {
         return application.start();
-      })["catch"](function (err) {
+      }).catch(function (err) {
         console.error(err);
       });
     }
